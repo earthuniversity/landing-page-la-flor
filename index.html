@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Universidad EARTH - Campus Daniel Oduber Quirós (Hacienda La Flor). Innovación agrícola, sostenibilidad y desarrollo comunitario.">
+    <title>Universidad EARTH - Hacienda La Flor</title>
+
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons (Waze, Maps) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config Customization -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        earth: {
+                            primary: '#008C99',
+                            secondary: '#f37321',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        serif: ['Georgia', 'serif'], // Used for the elegant hero title
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Carousel and Smooth Animations -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .carousel-item {
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-item.opacity-0 {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel-item.opacity-100 {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased bg-gray-50 selection:bg-earth-primary selection:text-white">
+
+    <!-- Header Sticky -->
+    <header
+        class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-4 border-earth-primary transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center lg:justify-between items-center py-3 lg:py-4">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="https://www.earth.ac.cr/" target="_blank" rel="noopener noreferrer"
+                        class="focus:outline-none rounded-md p-1" aria-label="Sitio Oficial Universidad EARTH">
+                        <img class="h-28 md:h-32 w-auto object-contain" src="Logo Institucional-EARTH.png"
+                            alt="Universidad EARTH Logo">
+                    </a>
+                </div>
+                <!-- Navigation / CTA -->
+                <nav class="flex items-center space-x-4" aria-label="Navegación principal">
+                    <!-- CTA Button (Currently disabled/commented as requested) -->
+                    <!-- 
+                    <a href="https://www.earth.ac.cr" target="_blank" rel="noopener noreferrer" 
+                       class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-earth-primary hover:bg-earth-secondary transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-earth-primary transform hover:-translate-y-0.5">
+                        Visitar Sitio Oficial
+                    </a> 
+                    -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero / Carousel Section -->
+        <section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-gray-900"
+            aria-label="Galería de imágenes destacadas">
+            <!-- Carousel Container -->
+            <div id="carousel" class="relative h-full w-full">
+                <!-- Slide 1 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-100" data-slide="0">
+                    <!-- Use high quality placeholder images related to the topic -->
+                    <img src="carrusel/Carrusel.jpeg" alt="Vista general Hacienda La Flor"
+                        class="object-cover h-full w-full object-center" fetchpriority="high">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="1">
+                    <img src="carrusel/Carrusel0.jpeg" alt="Naturaleza en Costa Rica"
+                        class="object-cover h-full w-full object-center" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="2">
+                    <img src="carrusel/Carrusel1.jpeg" alt="Agricultura sostenible"
+                        class="object-cover h-full w-full object-bottom" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="3">
+                    <img src="carrusel/Carrusel2.jpeg" alt="Agricultura sostenible"
+                        class="object-cover h-full w-full object-center" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="4">
+                    <img src="carrusel/Carrusel3.jpeg" alt="Agricultura sostenible"
+                        class="object-cover h-full w-full object-center" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="5">
+                    <img src="carrusel/Carrusel4.jpg" alt="Agricultura sostenible"
+                        class="object-cover h-full w-full object-center" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+                <!-- Slide 7 -->
+                <div class="carousel-item absolute inset-0 h-full w-full opacity-0" data-slide="6">
+                    <img src="carrusel/Carrusel5.jpg" alt="Agricultura sostenible"
+                        class="object-cover h-full w-full object-bottom" loading="lazy">
+                    <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+                </div>
+            </div>
+
+            <!-- Overlaid Text -->
+            <div
+                class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20 pointer-events-none">
+                <!-- <span
+                    class="text-earth-secondary font-medium tracking-[0.2em] uppercase mb-4 text-xs md:text-sm animate-fade-in-up"
+                    style="animation-delay: 0.1s;">
+                    Campus Daniel Oduber Quirós
+                </span> -->
+                <h1 class="text-white text-5xl md:text-7xl font-sans font-normal tracking-wide mb-6 drop-shadow-lg animate-fade-in-up"
+                    style="animation-delay: 0.3s;">
+                    Hacienda La Flor
+                </h1>
+                <div class="w-96 md:w-96 h-1 bg-earth-primary rounded-full mb-8 animate-fade-in-up"
+                    style="animation-delay: 0.5s;"></div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button id="prevSlide"
+                class="absolute z-30 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white shadow-lg lg:shadow-none left-4 bottom-16 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 p-3 lg:p-4 text-white lg:text-white/70 bg-black/30 lg:bg-transparent hover:bg-black/50 lg:hover:bg-black/30 lg:hover:text-white"
+                aria-label="Imagen anterior">
+                <i class="fas fa-chevron-left text-xl lg:text-2xl"></i>
+            </button>
+            <button id="nextSlide"
+                class="absolute z-30 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white shadow-lg lg:shadow-none right-4 bottom-16 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 p-3 lg:p-4 text-white lg:text-white/70 bg-black/30 lg:bg-transparent hover:bg-black/50 lg:hover:bg-black/30 lg:hover:text-white"
+                aria-label="Siguiente imagen">
+                <i class="fas fa-chevron-right text-xl md:text-2xl"></i>
+            </button>
+
+            <!-- Carousel Indicators -->
+            <div class="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-3">
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="0" aria-label="Ir a diapositiva 1"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="1" aria-label="Ir a diapositiva 2"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="2" aria-label="Ir a diapositiva 3"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="3" aria-label="Ir a diapositiva 4"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="4" aria-label="Ir a diapositiva 5"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="5" aria-label="Ir a diapositiva 6"></button>
+                <button
+                    class="indicator w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 hover:bg-white focus:outline-none transition-all duration-300"
+                    data-target="6" aria-label="Ir a diapositiva 7"></button>
+            </div>
+        </section>
+
+        <!-- Body Content (Bilingual) -->
+        <section class="py-20 md:py-32 bg-white" aria-labelledby="about-heading">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <!-- <div class="text-center mb-16 md:mb-24">
+                    <h2 id="about-heading" class="text-3xl md:text-4xl font-light text-gray-900 mb-4 font-serif">Sobre
+                        el Campus</h2>
+                    <p class="text-gray-400 uppercase tracking-widest text-xs md:text-sm font-medium">About the Campus
+                    </p>
+                </div> -->
+
+                <!-- Content Grid: 1 col mobile, 2 cols lg+ -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+                    <!-- Spanish Column -->
+                    <article class="space-y-6 text-lg text-gray-600 text-justify">
+                        <div class="flex items-center border-l-4 border-earth-primary pl-4">
+                            <h3 class="text-xl md:text-2xl font-medium text-gray-900 m-0">Español</h3>
+                        </div>
+                        <!-- Placeholder for user content -->
+                        <p>
+                            La Hacienda La Flor es una propiedad ubicada en la provincia de Guanacaste, Costa Rica.
+                            Perteneció a Daniel Oduber Quirós, quien se desempeñó como Presidente de Costa Rica entre
+                            1974 y 1978, y a su familia. Guanacaste ocupó un lugar central en su visión de desarrollo,
+                            donde impulsó el turismo, la modernización de la infraestructura y el crecimiento económico
+                            de la región.
+                        </p>
+                        <p>
+                            En la Hacienda La Flor se desarrollaron actividades de experimentación agrícola con cultivos
+                            como mango, aguacate, limón y caña de azúcar, así como proyectos de ganadería. Además,
+                            contaba con una planta empacadora que estaba disponible para pequeños agricultores de la
+                            zona.
+                        </p>
+                        <p>
+                            En 2004, Marjorie Elliott, viuda de Daniel Oduber Quirós, junto con sus hijos Luis Adrián y
+                            Anna María, donaron la hacienda a la Universidad EARTH para apoyar el desarrollo de estudios
+                            en Ciencias Agrícolas. Asimismo, establecieron un fondo de becas que, desde entonces, ha
+                            beneficiado a numerosos estudiantes y futuros líderes.
+                        </p>
+                        <p>La propiedad, con una extensión de 1.500 hectáreas, alberga el Campus Académico de la
+                            Universidad, denominado Campus Daniel Oduber Quirós en honor al exmandatario. Actualmente,
+                            es un centro de convergencia para la investigación, el desarrollo y la innovación,
+                            reflejando el compromiso y la visión que inspiraron su creación.
+                        </p>
+                    </article>
+
+                    <!-- English Column -->
+                    <article class="space-y-6 text-lg text-gray-600 text-justify">
+                        <div class="flex items-center border-l-4 border-earth-secondary pl-4">
+                            <h3 class="text-xl md:text-2xl font-medium text-gray-900 m-0">English</h3>
+                        </div>
+                        <!-- Placeholder for user content -->
+                        <p>
+                            Hacienda La Flor is a property located in the province of Guanacaste, Costa Rica. It once
+                            belonged to Daniel Oduber Quirós, who served as President of Costa Rica from 1974 to 1978,
+                            and to his family. Guanacaste played a central role in Daniel Oduber Quirós’s development
+                            vision, where he promoted tourism, infrastructure modernization, and the region’s economic
+                            growth.
+                        </p>
+                        <p>
+                            At Hacienda La Flor, agricultural experimentation was carried out with crops such as
+                            mangoes, avocados, lemons, and sugarcane, along with livestock projects. The property also
+                            included a packing facility available to small local farmers.
+                        </p>
+                        <p>
+                            In 2004, Marjorie Elliott, widow of Daniel Oduber Quirós, together with her children Luis
+                            Adrián and Anna María, donated the Hacienda to EARTH University to support the development
+                            of agricultural science studies. They also established a scholarship fund that has since
+                            benefited numerous students and future leaders.
+                        </p>
+                        <p>
+                            The 3,700-acre property is home to the University’s academic campus, named the Daniel Oduber
+                            Quirós Campus in honor of the former president. Today, it serves as a hub for research,
+                            development, and innovation, reflecting the commitment and vision that inspired its
+                            creation.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-earth-primary text-white border-t-[6px] border-earth-secondary">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-10 md:space-y-0">
+
+                <!-- Address Info -->
+                <div class="text-center md:text-left flex-1">
+                    <div class="mb-6 flex justify-center md:justify-start">
+                        <!-- We use brightness-0 invert to make the color logo white -->
+                        <img src="Logo Institucional-EARTH.png" alt="EARTH Logo"
+                            class="h-24 object-contain brightness-0 invert opacity-100">
+                    </div>
+                    <address class="not-italic text-white/80 text-sm md:text-base leading-relaxed font-light">
+                        <p class="font-medium text-white mb-2 text-lg">Campus Daniel Oduber Quirós</p>
+                        <p class="mb-1">Hacienda La Flor, Liberia</p>
+                        <p class="mb-1">Guanacaste, Costa Rica.</p>
+                        <p class="mt-3"><a href="tel:+50627130000" class="hover:text-white transition-colors"><i
+                                    class="fas fa-phone mr-2"></i>+506 2713-0000</a></p>
+                    </address>
+                </div>
+
+                <!-- Navigation Elements (Map Actions) -->
+                <div class="flex flex-col items-center flex-shrink-0">
+                    <p
+                        class="text-xs md:text-sm font-medium mb-5 text-white/70 uppercase tracking-[0.15em] text-center">
+                        Cómo llegar
+                        / How to get there</p>
+                    <div class="flex space-x-5">
+                        <!-- Waze Button -->
+                        <a href="https://www.waze.com/live-map/directions?to=ll.10.603673%2C-85.513093" target="_blank"
+                            rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-14 h-14 rounded-full bg-white text-earth-primary hover:bg-earth-secondary hover:text-white shadow-lg transition-all duration-300 transform hover:-translate-y-1.5 focus:outline-none focus:ring-4 focus:ring-earth-secondary/50"
+                            aria-label="Abrir ubicación en Waze">
+                            <i class="fab fa-waze text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+                        </a>
+                        <!-- Google Maps Button -->
+                        <a href="https://www.google.com/maps/place/Universidad+EARTH+Campus+Daniel+Oduber+Quirós/@10.6093931,-85.5227601,1108m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8f757fc7b107dde1:0x3dbbd1ccc3a08949!8m2!3d10.6093878!4d-85.5201852!16s%2Fg%2F11vyhmp138?entry=ttu&g_ep=EgoyMDI1MTExMS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-14 h-14 rounded-full bg-white text-earth-primary hover:bg-earth-secondary hover:text-white shadow-lg transition-all duration-300 transform hover:-translate-y-1.5 focus:outline-none focus:ring-4 focus:ring-earth-secondary/50"
+                            aria-label="Abrir ubicación en Google Maps">
+                            <i
+                                class="fas fa-map-marker-alt text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/20 text-center text-xs md:text-sm font-light text-white/60">
+                <p>&copy; <span id="year"></span> Universidad EARTH. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carousel and UI Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // -- Footer Year --
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // -- Carousel --
+            const items = document.querySelectorAll('.carousel-item');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+
+            let currentSlide = 0;
+            const totalSlides = items.length;
+            let slideInterval;
+
+            const updateActiveIndicator = () => {
+                indicators.forEach((ind, index) => {
+                    if (index === currentSlide) {
+                        ind.classList.remove('bg-white/40');
+                        ind.classList.add('bg-white', 'scale-125');
+                    } else {
+                        ind.classList.add('bg-white/40');
+                        ind.classList.remove('bg-white', 'scale-125');
+                    }
+                });
+            };
+
+            const goToSlide = (index) => {
+                // Fade out current
+                items[currentSlide].classList.remove('opacity-100');
+                items[currentSlide].classList.add('opacity-0');
+
+                // Update index
+                currentSlide = index;
+                if (currentSlide >= totalSlides) currentSlide = 0;
+                if (currentSlide < 0) currentSlide = totalSlides - 1;
+
+                // Fade in new
+                items[currentSlide].classList.remove('opacity-0');
+                items[currentSlide].classList.add('opacity-100');
+
+                updateActiveIndicator();
+            };
+
+            const nextSlide = () => goToSlide(currentSlide + 1);
+            const prevSlide = () => goToSlide(currentSlide - 1);
+
+            const startAutoPlay = () => {
+                // Change slide every 6 seconds
+                slideInterval = setInterval(nextSlide, 6000);
+            };
+
+            const resetAutoPlay = () => {
+                clearInterval(slideInterval);
+                startAutoPlay();
+            };
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoPlay();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoPlay();
+            });
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetAutoPlay();
+                });
+            });
+
+            // Init Carousel
+            updateActiveIndicator();
+            startAutoPlay();
+        });
+    </script>
+</body>
+
+</html>
